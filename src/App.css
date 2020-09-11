@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap");
+
+* {
+  top: 0;
+  left: 0;
+  right: 0;
+  font-family: "Libre Baskerville", serif;
+}
+
+.App {
+  position: fixed;
+  overflow: hidden;
+}
+
+.body__container {
+  display: grid;
+  grid-template-columns: 20% 75%;
+  column-gap: 50px;
+}
+
+.cards__cont {
+  grid-column: 2;
+  overflow: scroll;
+  height: 77vh;
+}
+
+.cards__cont::-webkit-scrollbar {
+  width: 5px;
+  color: yellow;
+}
+.cards__cont::-webkit-scrollbar-thumb {
+  border-radius: 30px;
+  width: 5px;
+  height: 15px;
+  background: #2e2945;
+}

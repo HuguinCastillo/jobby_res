@@ -1,0 +1,38 @@
+@import "../../../styles/sass/variables";
+
+.header__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  column-gap: 15px;
+  height: 150px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: $tertiary-color;
+  img {
+    box-shadow: $shadow;
+    border-radius: $corners;
+    margin-left: 20px;
+  }
+  input {
+    height: 40px;
+    padding-left: 10px;
+    border: 1px solid #8cade3;
+    box-sizing: border-box;
+    box-shadow: $shadow;
+    border-radius: $corners;
+    &:focus {
+      outline: 1px solid darken($color: $primary-color, $amount: 30%);
+    }
+  }
+  button {
+    @include buttons(40px, 160px);
+    background-color: $primary-color;
+    color: $tertiary-color;
+    font-weight: 700;
+  }
+  #hd-submit,
+  a {
+    justify-self: center;
+  }
+}

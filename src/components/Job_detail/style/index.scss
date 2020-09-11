@@ -1,0 +1,84 @@
+@import "../../../styles/sass/variables";
+
+.body__cont {
+  display: flex;
+  height: 430px;
+  justify-content: center;
+  align-items: center;
+}
+
+.job_container {
+  height: 380px;
+  width: 1000px;
+  background-color: $cards-bg;
+  border-radius: 8px;
+  box-shadow: $shadow;
+  & > div {
+    height: 340px;
+    width: 860;
+    padding: 15px 80px 15px 80px;
+    display: grid;
+    grid-template-rows: 20% 10% 55% 15%;
+  }
+  article {
+    width: inherit;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, (minmax(100px, 1fr)));
+    h2 {
+      grid-column: 1 / 2;
+      margin: 0px;
+      padding: 0;
+    }
+    img {
+      grid-column: 2 / 3;
+    }
+  }
+  ul {
+    width: inherit;
+    display: grid;
+    margin: 0;
+    padding: 0;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    justify-content: start;
+    align-items: center;
+    li {
+      font-size: 12px;
+      list-style-type: none;
+    }
+  }
+  .scrollable {
+    overflow: hidden scroll;
+    &::-webkit-scrollbar {
+      width: 3px;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 30px;
+      width: 1px;
+      height: 15px;
+      background: $tertiary-color;
+    }
+    .wrapper::-webkit-scrollbar-track {
+      background: transparent;
+    }
+  }
+  p {
+    margin: 10px 0;
+  }
+  button {
+    @include buttons(30px, 80px);
+  }
+  .buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: end center;
+  }
+}
+
+ul li {
+  span {
+    img {
+      width: 10px;
+    }
+  }
+}

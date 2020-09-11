@@ -1,0 +1,60 @@
+@import "../../../styles/sass/variables";
+
+.card_container {
+  height: 200px;
+  width: 800px;
+  background-color: $cards-bg;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: $shadow;
+  & > div {
+    height: 170px;
+    width: 730px;
+    padding: 15px 30px 15px 40px;
+    display: grid;
+  }
+  article {
+    height: 60px;
+    width: inherit;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, (minmax(100px, 1fr)));
+    h2 {
+      grid-column: 1 / 2;
+      margin: 0px;
+      padding: 0;
+    }
+    img {
+      grid-column: 2 / 3;
+    }
+  }
+  ul {
+    width: inherit;
+    display: grid;
+    margin-top: 8px;
+    padding: 0;
+    grid-template-columns: 20% 30% 30% 20%;
+    justify-content: start;
+    align-items: center;
+    li {
+      font-size: 13px;
+      text-align: start;
+      list-style-type: none;
+    }
+  }
+  h5 {
+    margin: 10px 0 10px;
+  }
+  button {
+    margin: 0 335px 0 315px;
+    @include buttons(30px, 80px);
+  }
+}
+
+ul li {
+  span {
+    img {
+      width: 10px;
+    }
+  }
+}
