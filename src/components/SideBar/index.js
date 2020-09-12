@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./style/index.scss";
 import axios from "axios";
+//import image from '../../../api/static/image.jpg'
+import image from '../../../assets/plot.png'
+//import image_dist from '../../../api/static/plot.png'
+
 
 class index extends Component {
   constructor(props) {

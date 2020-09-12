@@ -53,7 +53,9 @@ class index extends Component {
     // } else if (!isLoaded) {
     //   return <h1>Loading...</h1>;
     // } else {
-    return (
+  const skills = job[7].split(',')
+  const tags = skills.map((rol) => <span key={rol}>{rol}</span>);    
+  return (
       <div className="card_container">
         <div>
           <article>
@@ -88,17 +90,15 @@ class index extends Component {
             </ul>
           </section>
           <section className="tag-container">
-            <span>1</span>
-            <span>databases</span>
-            <span>machine learning</span>
-            <span>4</span>
-            <span>5</span>
+            {
+              tags
+            }
           </section>
           <Link
             className="text-reset text-decoration-none"
             to={`/job/` + job[6]}
           >
-            <button>More...</button>
+            <button>More</button>
           </Link>
         </div>
       </div>

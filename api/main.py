@@ -10,7 +10,7 @@ from pandasql import sqldf
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 import io
-
+import re
 
 global df
 
@@ -159,7 +159,9 @@ def plot_png():
     fig = create_figure()
     output = io.BytesIO()
     FigureCanvas(fig).print_png(output)
-    return Response(output.getvalue(), mimetype='image/png')
+    response=make_response(output.getvalue())
+    response.headers['Content-Type'] = 'image/png'
+    return response
 
 @app.route('/salary/<keyword>')
 def salary(keyword):
@@ -293,6 +295,7 @@ def getArrayBD(jobs):
         job.append(row[5])
         job.append(row[4])
         job.append(row[0])
+        job.append(row[8])
         jobsf.append(job)
     
     return jobsf
@@ -318,7 +321,7 @@ def getArray(jobs):
     return jobsf
 
 def word_finder(x):
-    skills = {"data", "python", "SQL", "statistics", 'tableau', "big data", "excel", "machine learning", "databases", "r", "analyst", "microsoft", "leadership","ETL"}
+    skills = {"sql", "python", "statistics", 'tableau', "big data", "excel","machine learning", "databases", "r", "analyst", "microsoft", "leadership","ETL"}
     df_words = set(x.split(' '))
     extract_words =  skills.intersection(df_words)
     return ', '.join(extract_words)
@@ -334,7 +337,6 @@ def create_figure():
     y = jobs['ESTRELLAS'].astype(dtype=int).value_counts()
     axis_1.pie(y, labels=(y.index),startangle=90, colors=coolors)
     axis_2.hist(x,edgecolor='white', color='DarkCyan', density=True)
-    
     return fig
 
 def limpiar():
@@ -409,8 +411,8 @@ def limpiar():
     df['joined_search'] = df['joined_search'].str.replace('\n',' ')
     
     df['skills'] = df['joined_search'].apply(word_finder)
-    df['skills'] = df['skills'].apply(lambda x: x.replace('analyst', 'SQL, databases'))
-
+    df['skills'] = df['skills'].apply(lambda x: x.replace('analyst', 'mongoDB'))
+    df['skills'] = df['skills'].apply(lambda y: y.replace('sql', 'SQL'))
 
 def load():
     global df

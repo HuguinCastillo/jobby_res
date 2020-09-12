@@ -54,7 +54,7 @@ class index extends Component {
         <div>
           <article>
             <h2>{this.state.job[0][0]}</h2>
-            <img src={url} alt="logo" />
+          
           </article>
 
           <section className="card-aspects__container">
