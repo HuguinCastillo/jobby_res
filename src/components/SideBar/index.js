@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 import "./style/index.scss";
 import axios from "axios";
 //import image from '../../../api/static/image.jpg'
-import image from '../../../assets/plot.png'
+import image_pie from '../../assets/Piee.png'
+import image_dist from '../../assets/Dist.png'
+
 //import image_dist from '../../../api/static/plot.png'
 
 
@@ -93,7 +95,11 @@ class index extends Component {
           </li>
         </ul> */}
         <figure>
-          <img src={image} alt="Graphiques" />
+          <img src={image_pie} alt="Graphiques" />
+          <figcaption>Graphiques</figcaption>
+        </figure>
+        <figure>
+          <img src={image_dist} alt="Graphiques 2" />
           <figcaption>Graphiques</figcaption>
         </figure>
       </div>

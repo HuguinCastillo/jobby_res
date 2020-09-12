@@ -329,7 +329,7 @@ def word_finder(x):
 def create_figure():
     load()
     limpiar()
-    fig = Figure()
+    fig = Figure(figsize=(15,15))
     axis_1 = fig.add_subplot(2,1,1,title='¿Cuantas estrellas tiene tu busqueda?')
     axis_2 = fig.add_subplot(2,1,2,title='Distribucion de salarios')
     coolors=['RoyalBlue', 'OrangeRed', 'Indigo', 'FireBrick', 'HotPink']
